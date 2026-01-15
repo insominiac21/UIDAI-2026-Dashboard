@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aadhaar Enrollment Intelligence | Interactive Dashboard</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="Aadhaar Intelligence">Aadhaar Intelligence</h1>
+            <p class="subtitle">Transforming 5.4M Records into Actionable Policy</p>
+            <div class="scroll-indicator">
+                <span>Scroll to Explore</span>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="floating-nav">
+        <a href="#map">🗺️ Map</a>
+        <a href="#insights">💡 Insights</a>
+        <a href="#policy">🎯 Policy</a>
+        <a href="#viz">📊 Visualizations</a>
+    </nav>
+
+    <!-- Interactive Map Section -->
+    <section id="map" class="section map-section">
+        <div class="container">
+            <h2 class="section-title">India: Interactive State Analysis</h2>
+            <p class="section-desc">Select a metric below. Hover over states for details. Click for comprehensive
+                analysis.</p>
+
+            <!-- Filter Controls -->
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="youth">👥 Youth Concentration</button>
+                <button class="filter-btn" data-filter="migration">🚂 Migration Activity</button>
+                <button class="filter-btn" data-filter="biometric">🔧 Biometric Stress</button>
+                <button class="filter-btn" data-filter="velocity">⚡ Enrollment Velocity</button>
+            </div>
+
+            <div class="map-container">
+                <div id="india-map"></div>
+                <div class="map-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="selected-state">India</div>
+                        <div class="stat-label">Selected Region</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="youth-percent">24.4%</div>
+                        <div class="stat-label">Youth %</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="priority-level">Standard</div>
+                        <div class="stat-label">Priority</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Insights Section -->
+    <section id="insights" class="section insights-section">
+        <div class="container">
+            <h2 class="section-title">4 Game-Changing Discoveries</h2>
+
+            <div class="insights-grid">
+                <!-- Insight 1 -->
+                <div class="insight-card" data-aos="fade-up">
+                    <div class="insight-icon">🎓</div>
+                    <h3>The Youth Opportunity</h3>
+                    <p>Northeast states have 2.5× youth concentration. 272,000 students accessible through schools.</p>
+                    <div class="insight-stat">School partnerships can reach them at 68% lower cost</div>
+                </div>
+
+                <!-- Insight 2 -->
+                <div class="insight-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="insight-icon">📅</div>
+                    <h3>The School Calendar Effect</h3>
+                    <p>September enrollments exceed May by 73% due to school resumption cycle.</p>
+                    <div class="insight-stat">Flex-staffing can save Rs. 15.6 crore annually</div>
+                </div>
+
+                <!-- Insight 3 -->
+                <div class="insight-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="insight-icon">🚂</div>
+                    <h3>Migration: A Two-City Challenge</h3>
+                    <p><strong>Source Cities (UP/Bihar):</strong> Limited jobs and education drive outward migration.
+                    </p>
+                    <p><strong>Destination Cities (Maharashtra/Gujarat):</strong> Need affordable housing, public
+                        transport for workers without vehicles.</p>
+                    <div class="policy-box">
+                        <div class="policy-title">💼 Source Development</div>
+                        <p>Job programs, vocational training, education expansion</p>
+                    </div>
+                    <div class="policy-box">
+                        <div class="policy-title">🏘️ Destination Infrastructure</div>
+                        <p>Affordable housing colonies, 200+ bus routes, urban planning</p>
+                    </div>
+                    <div class="insight-stat">🎯 UIDAutomation Transit hubs serve current migrants (UIDAI ops)</div>
+                </div>
+
+                <!-- Insight 4 -->
+                <div class="insight-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="insight-icon">🔧</div>
+                    <h3>Equipment Age Crisis</h3>
+                    <p>7.8-year old scanners cause 2,499% biometric stress in Maharashtra.</p>
+                    <div class="insight-stat">New equipment → 88% vs 65% success rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Policy Recommendations -->
+    <section id="policy" class="section policy-section">
+        <div class="container">
+            <h2 class="section-title">Strategic Policy Framework</h2>
+
+            <div class="policy-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Mobile School Units</h3>
+                        <p>Deploy 50 vans to high-youth states. Target schools during assembly hours.</p>
+                        <div class="policy-impact">Impact: 2.5M youth enrollments in 6 months</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Equipment Refresh</h3>
+                        <p>Replace 7,000 aged scanners in Maharashtra, UP, MP, Bihar, Rajasthan.</p>
+                        <div class="policy-impact">Impact: Authentication success 65% → 88%</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Seasonal Staffing</h3>
+                        <p>Dynamic resource allocation: -30% Apr-Jun, +30% Jul-Sep.</p>
+                        <div class="policy-impact">Impact: Rs. 15.6 crore annual savings</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Transit Hub Kiosks</h3>
+                        <p>20 update centers at railway stations, bus stands for migrant workers.</p>
+                        <div class="policy-impact">Impact: 1.8M updates with weekend access</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Visualizations -->
+    <section id="viz" class="section viz-section">
+        <div class="container">
+            <h2 class="section-title">Data Visualizations</h2>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Seasonal Enrollment Pattern</h3>
+                    <canvas id="seasonalChart"></canvas>
+                    <p class="chart-insight">Post-school resumption surge enables targeted campaigns</p>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Youth Concentration Leaders</h3>
+                    <canvas id="youthChart"></canvas>
+                    <p class="chart-insight">Northeast states 2.5× national average</p>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Migration Activity Heatmap</h3>
+                    <canvas id="migrationChart"></canvas>
+                    <p class="chart-insight">Update ratios reveal labor movement corridors</p>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Equipment Stress Analysis</h3>
+                    <canvas id="stressChart"></canvas>
+                    <p class="chart-insight">Age-stress correlation: r=0.76 (p<0.001)< /p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Aadhaar Intelligence</h3>
+                    <p>Evidence-based policy framework by Ansh Patidar</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://www.kaggle.com/code/anshpatidar/uidai-2026-analysis" target="_blank"
+                        class="cta-button">
+                        View Complete Analysis
+                    </a>
+                </div>
+            </div>
+            <div class="footer-credits">
+                <p>UIDAI Hackathon 2026 | Data: 5.4M records, 1,045 districts</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
