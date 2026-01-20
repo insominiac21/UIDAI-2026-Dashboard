@@ -257,7 +257,7 @@ function createSeasonalChart() {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
             datasets: [{
                 label: 'Enrollments (thousands)',
-                data: [482, 501, 539, 456, 424, 489, 612, 683, 732],
+                data: [1366, 177, 117, 66, 102, 103, 57, 136, 819],
                 borderColor: '#667eea',
                 backgroundColor: 'rgba(102, 126, 234, 0.2)',
                 borderWidth: 3,
@@ -301,10 +301,10 @@ function createYouthChart() {
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['UP', 'Bihar', 'MP', 'Rajasthan', 'West Bengal', 'Maharashtra', 'Gujarat', 'Assam', 'Jharkhand', 'Meghalaya'],
+            labels: ['UP', 'Bihar', 'Rajasthan', 'West Bengal', 'MP', 'Maharashtra', 'Gujarat', 'Assam', 'Jharkhand', 'Karnataka'],
             datasets: [{
-                label: 'Youth Enrollment (Thousands)',
-                data: [479, 335, 116, 113, 91, 82, 71, 66, 57, 53],
+                label: 'Youth Enrollment (Age 5-17, Thousands)',
+                data: [479.7, 334.8, 113.1, 91.4, 116.4, 82.1, 71.2, 66.1, 57.5, 33.9],
                 backgroundColor: ['#a855f7', '#8b5cf6', '#7c3aed', '#6d28d9', '#5b21b6', '#7c3aed', '#6366f1', '#5b21b6', '#7c3aed', '#6d28d9'],
                 borderRadius: 10
             }]
