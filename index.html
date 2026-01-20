@@ -350,6 +350,30 @@
                     <img src="assets/plots/3d_operational_profile.png" alt="3D Operational Profile" style="width: 100%; height: auto; border-radius: 10px;">
                     <p class="chart-insight">📌 <strong>Multi-dimensional analysis:</strong> Integrates youth density, biometric stress, and migration intensity across states. Top-right (high youth, low stress) = high-priority targets. Bottom-left (low youth, high stress) = equipment-focused interventions. Strategic positioning enables resource allocation that maximizes both reach and impact.</p>
                 </div>
+
+                <div class="chart-card">
+                    <h3>Correlation Heatmap</h3>
+                    <img src="assets/plots/correlation_heatmap.png" alt="Correlation Heatmap" style="width: 100%; height: auto; border-radius: 10px;">
+                    <p class="chart-insight">📌 <strong>Metric relationships revealed:</strong> Strong positive correlation (r=0.93) between update load and biometric stress suggests high-migration states also face equipment strain from increased authentication volume. Enrollment volume correlates with biometric stress (r=0.67), indicating scale drives infrastructure demand. Youth concentration shows weak correlation with other metrics (r<0.3)—enabling independent targeting strategies.</p>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Update Load Distribution</h3>
+                    <img src="assets/plots/update_load_distribution.png" alt="Update Load Distribution" style="width: 100%; height: auto; border-radius: 10px;">
+                    <p class="chart-insight">📌 <strong>Distribution tail analysis:</strong> Most states cluster around update load of 10-30, but a long right tail shows outliers facing 3-4× average pressure (Maharashtra, Andhra Pradesh). These outlier states need dedicated update infrastructure (transit hubs, workplace centers, migration hotspots). Mean: 8.2 | Median: 5.8 | Max: 139—indicating highly skewed distribution requiring targeted intervention.</p>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Youth vs Enrollment Scatter</h3>
+                    <img src="assets/plots/youth_vs_enrollment_scatter.png" alt="Youth vs Enrollment Scatter" style="width: 100%; height: auto; border-radius: 10px;">
+                    <p class="chart-insight">📌 <strong>Segmentation matrix revealed:</strong> This scatter plot shows three variables: enrollment volume (x), youth concentration (y), and biometric stress (color). High-youth, low-volume states (upper-left quadrant: Nagaland, Manipur, Meghalaya) are ideal for targeted mobile programs with minimal infrastructure. High-volume, moderate-youth states (right: UP, Maharashtra) need capacity expansion.</p>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Update vs Stress Quadrant</h3>
+                    <img src="assets/plots/update_vs_bio_scatter.png" alt="Update vs Stress Quadrant" style="width: 100%; height: auto; border-radius: 10px;">
+                    <p class="chart-insight">📌 <strong>Intervention strategy matrix:</strong> States in upper-right quadrant (high update load AND high biometric stress) need bundled interventions—both equipment refresh AND additional update capacity (Maharashtra, Rajasthan, MP). Upper-left (high update, low stress) → capacity planning. Lower-right (low update, high stress) → equipment focus. Bubble size represents enrollment volume.</p>
+                </div>
             </div>
         </div>
     </section>
