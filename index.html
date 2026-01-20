@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aadhaar Enrollment Intelligence | Interactive Dashboard</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -305,45 +304,51 @@
 
             <div class="charts-grid">
                 <div class="chart-card">
-                    <h3>Seasonal Enrollment Pattern</h3>
-                    <canvas id="seasonalChart"></canvas>
+                    <h3>Monthly Enrollment Trends</h3>
+                    <img src="assets/plots/monthly_enrollment_trends.jpeg" alt="Monthly Enrollment Trends" style="width: 100%; height: auto; border-radius: 10px;">
                     <p class="chart-insight">📌 <strong>School-driven demand:</strong> April-May dips 73% below September peak as families avoid registration during exam season. July-September surge coincides with school reopening (admission gateways, scholarships, mid-day meals). Mobile unit deployment should concentrate July-August to catch the wave. Coefficient of variation: 28.7% (well above 15% noise threshold).</p>
                 </div>
 
                 <div class="chart-card">
-                    <h3>Youth Concentration Leaders</h3>
-                    <canvas id="youthChart"></canvas>
+                    <h3>Youth Population by States</h3>
+                    <img src="assets/plots/youth_population_states.png" alt="Youth Population by States" style="width: 100%; height: auto; border-radius: 10px;">
                     <p class="chart-insight">📌 <strong>Geographic targeting goldmine:</strong> UP (47.1%) and Bihar (54.9%) lead with 2.3× national average (24.4%). Youth concentration enables school-based MBU (Mandatory Biometric Update) programs at 68% lower cost. Enrolling 100 children in high-youth states requires reaching ~160 people; in low-youth states, ~550 people. Strategic deployment in 10 states reaches 80% of unregistered youth.</p>
                 </div>
 
                 <div class="chart-card">
-                    <h3>Migration Activity Heatmap</h3>
-                    <canvas id="migrationChart"></canvas>
+                    <h3>Migration Hotspots</h3>
+                    <img src="assets/plots/migration_hotspots.png" alt="Migration Hotspots" style="width: 100%; height: auto; border-radius: 10px;">
                     <p class="chart-insight">📌 <strong>Migration corridors revealed:</strong> Demographic update intensity (address/mobile changes) signals population mobility. Up→Maharashtra, Bihar→Gujarat, UP→Delhi flows concentrated around industrial hubs. Transit-optimized service centers near bus depots/railways in Mumbai, Delhi, Bangalore, Surat process 1.8M annual updates cost-effectively (Rs. 87/update vs Rs. 150 at centers).</p>
                 </div>
 
                 <div class="chart-card">
-                    <h3>Equipment Stress Analysis</h3>
-                    <canvas id="stressChart"></canvas>
+                    <h3>Biometric Stress Zones</h3>
+                    <img src="assets/plots/biometric_stress_zones.png" alt="Biometric Stress Zones" style="width: 100%; height: auto; border-radius: 10px;">
                     <p class="chart-insight">📌 <strong>Biometric failure hotspots:</strong> Maharashtra (9.23M re-captures = 2,499% of enrollments) and UP (9.58M = 2,452%) face equipment strain. Children turning 5/15 undergo mandatory biometric updates (legitimate); authentication failures cascade from outdated records. Targeted equipment refresh in top 5 states prevents service denial. Biometric-stress correlates with migration intensity (r=0.67).</p>
                 </div>
 
                 <div class="chart-card">
-                    <h3>Age-Wise Enrollment Distribution</h3>
-                    <canvas id="ageDistributionChart"></canvas>
+                    <h3>Age Distribution Trends</h3>
+                    <img src="assets/plots/age_distribution_trends.png" alt="Age Distribution Trends" style="width: 100%; height: auto; border-radius: 10px;">
                     <p class="chart-insight">📌 <strong>Demographic opportunity:</strong> 65.3% are age 0-5 (infant Aadhaar expansion success); 31.7% age 5-17 (school-age, accessible via institutions); 3.1% age 18+. August-September show selective 1.8-point increase in youth share—validating school-calendar hypothesis. Stable composition Jan-July → compositional shift Jul-Sep → proves school effect drives surge, not generic awareness.</p>
                 </div>
 
                 <div class="chart-card">
-                    <h3>Biometric Success Rates by State</h3>
-                    <canvas id="biometricSuccessChart"></canvas>
+                    <h3>Top States Enrollment Volume</h3>
+                    <img src="assets/plots/top_states_enrollment.png" alt="Top States Enrollment" style="width: 100%; height: auto; border-radius: 10px;">
                     <p class="chart-insight">📌 <strong>Equipment quality ROI:</strong> States with modern biometric hardware show 23% higher authentication success rates. Maharashtra/UP biometric load (9.2-9.6M) demands sustained equipment refresh cycles (3-year typical lifecycle). Predictive maintenance—tracking authentication-failure spikes—enables early equipment replacement. Cost per successful authentication: Rs. 12-18 vs Rs. 22-26 (degraded hardware).</p>
                 </div>
 
                 <div class="chart-card">
-                    <h3>Regional Enrollment Velocity</h3>
-                    <canvas id="velocityComparisonChart"></canvas>
+                    <h3>Priority Districts Analysis</h3>
+                    <img src="assets/plots/top_priority_districts.png" alt="Priority Districts" style="width: 100%; height: auto; border-radius: 10px;">
                     <p class="chart-insight">📌 <strong>Momentum indicators:</strong> UP (19.2/month), Maharashtra (18.7), Bihar (18.9) show sustained high velocity. Top 5 states (UP, Bihar, MP, WB, MH) = 56% of national enrollment activity. Pearson correlation with Census population = 0.89—historic allocation achieved equity. Policy shift: capacity (UP needs centers) vs opportunity (Nagaland needs programs). School-season campaigns in Jul-Aug multiply outreach ROI by 2-3×.</p>
+                </div>
+
+                <div class="chart-card">
+                    <h3>3D Operational Profile</h3>
+                    <img src="assets/plots/3d_operational_profile.png" alt="3D Operational Profile" style="width: 100%; height: auto; border-radius: 10px;">
+                    <p class="chart-insight">📌 <strong>Multi-dimensional analysis:</strong> Integrates youth density, biometric stress, and migration intensity across states. Top-right (high youth, low stress) = high-priority targets. Bottom-left (low youth, high stress) = equipment-focused interventions. Strategic positioning enables resource allocation that maximizes both reach and impact.</p>
                 </div>
             </div>
         </div>
