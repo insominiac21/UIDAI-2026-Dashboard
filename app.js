@@ -244,6 +244,9 @@ function initializeCharts() {
     createYouthChart();
     createMigrationChart();
     createStressChart();
+    createAgeDistributionChart();
+    createBiometricSuccessChart();
+    createVelocityComparisonChart();
 }
 
 function createSeasonalChart() {
@@ -429,8 +432,159 @@ function initScrollAnimations() {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.insight-card, .timeline-item, .chart-card').forEach(el => {
+    document.querySelectorAll('.insight-card, .timeline-item, .chart-card, .policy-category').forEach(el => {
         observer.observe(el);
+    });
+}
+
+// ========================================
+// ADDITIONAL VISUALIZATION CHARTS
+// ========================================
+
+function createAgeDistributionChart() {
+    const ctx = document.getElementById('ageDistributionChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Age 0-5', 'Age 5-17 (Youth)', 'Age 18+'],
+            datasets: [{
+                data: [15, 45, 40],
+                backgroundColor: ['#667eea', '#a855f7', '#f59e0b'],
+                borderColor: '#1e293b',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#94a3b8',
+                        padding: 15,
+                        font: { size: 12 }
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                    padding: 12,
+                    titleColor: '#a855f7',
+                    bodyColor: '#cbd5e1',
+                    callbacks: {
+                        label: function(context) {
+                            return context.label + ': ' + context.parsed + '%';
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+function createBiometricSuccessChart() {
+    const ctx = document.getElementById('biometricSuccessChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Maharashtra', 'UP', 'MP', 'Rajasthan', 'Bihar'],
+            datasets: [
+                {
+                    label: 'Current Success %',
+                    data: [65, 68, 66, 67, 69],
+                    backgroundColor: 'rgba(239, 68, 68, 0.7)',
+                    borderRadius: 8
+                },
+                {
+                    label: 'Target Success %',
+                    data: [88, 88, 88, 88, 88],
+                    backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                    borderRadius: 8
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#94a3b8',
+                        padding: 15
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                    padding: 12,
+                    titleColor: '#10b981',
+                    bodyColor: '#cbd5e1',
+                    callbacks: {
+                        label: function(context) {
+                            return context.dataset.label + ': ' + context.parsed.x + '%';
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                    ticks: { color: '#94a3b8', callback: v => v + '%' },
+                    max: 100
+                },
+                y: {
+                    grid: { display: false },
+                    ticks: { color: '#94a3b8' }
+                }
+            }
+        }
+    });
+}
+
+function createVelocityComparisonChart() {
+    const ctx = document.getElementById('velocityComparisonChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['UP', 'Maharashtra', 'Rajasthan', 'MP', 'Bihar', 'Karnataka', 'Tamil Nadu'],
+            datasets: [{
+                label: 'Enrollment Velocity (Rate)',
+                data: [19.2, 18.7, 15.1, 16.4, 18.9, 15.8, 14.9],
+                borderColor: '#667eea',
+                backgroundColor: 'rgba(102, 126, 234, 0.25)',
+                borderWidth: 2,
+                pointBackgroundColor: '#667eea',
+                pointBorderColor: '#fff',
+                pointBorderWidth: 2,
+                pointRadius: 4,
+                pointHoverRadius: 6
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#94a3b8',
+                        padding: 15
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                    padding: 12,
+                    titleColor: '#667eea',
+                    bodyColor: '#cbd5e1'
+                }
+            },
+            scales: {
+                r: {
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                    ticks: { color: '#94a3b8', beginAtZero: true, max: 20 },
+                    pointLabels: { color: '#cbd5e1' }
+                }
+            }
+        }
     });
 }
 
