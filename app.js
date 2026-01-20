@@ -174,6 +174,9 @@ function updateMapColors() {
         .transition()
         .duration(500)
         .attr('fill', d => getColorForState(d.properties.ST_NM, currentFilter));
+    
+    // Update stats to reflect the new filter
+    updateMapStats('India');
 }
 
 function updateMapStats(stateName) {
@@ -186,7 +189,34 @@ function updateMapStats(stateName) {
     else if (youth > 25) priority = 'Medium';
 
     document.getElementById('selected-state').textContent = stateName;
-    document.getElementById('youth-percent').textContent = youth.toFixed(1) + '%';
+    
+    // Update metric value and label based on current filter
+    let metricValue, metricLabel;
+    
+    switch(currentFilter) {
+        case 'youth':
+            metricValue = youth.toFixed(1) + '%';
+            metricLabel = 'Youth %';
+            break;
+        case 'migration':
+            metricValue = data.migration.toLocaleString();
+            metricLabel = 'Migration Index';
+            break;
+        case 'biometric':
+            metricValue = data.bioStress.toLocaleString();
+            metricLabel = 'Biometric Stress';
+            break;
+        case 'velocity':
+            metricValue = data.velocity.toFixed(1);
+            metricLabel = 'Enrollment Velocity';
+            break;
+        default:
+            metricValue = youth.toFixed(1) + '%';
+            metricLabel = 'Youth %';
+    }
+    
+    document.getElementById('metric-value').textContent = metricValue;
+    document.getElementById('metric-label').textContent = metricLabel;
     document.getElementById('priority-level').textContent = priority;
 
     // Animate stat cards
