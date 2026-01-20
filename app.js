@@ -115,7 +115,7 @@ function initIndiaMap() {
 
 function getColorForState(stateName, filter) {
     const data = stateData[stateName];
-    if (!data) return '#3b82f6'; // Default blue
+    if (!data) return '#00d4ff'; // Default bright cyan
 
     let value, colorScale;
 
@@ -124,31 +124,31 @@ function getColorForState(stateName, filter) {
             value = data.youth;
             colorScale = d3.scaleThreshold()
                 .domain([15, 25, 40, 55])
-                .range(['#3b82f6', '#667eea', '#8b5cf6', '#a855f7', '#c026d3']);
+                .range(['#00d4ff', '#0099ff', '#0055ff', '#7700ff', '#ff00ff']);
             break;
         case 'migration':
             value = data.migration;
             colorScale = d3.scaleThreshold()
                 .domain([200, 400, 700, 1200])
-                .range(['#10b981', '#22c55e', '#f59e0b', '#ef4444', '#dc2626']);
+                .range(['#00ff88', '#00ff00', '#ffff00', '#ff8800', '#ff0000']);
             break;
         case 'biometric':
             value = data.bioStress;
             colorScale = d3.scaleThreshold()
                 .domain([300, 600, 1000, 2000])
-                .range(['#3b82f6', '#f59e0b', '#ef4444', '#dc2626', '#991b1b']);
+                .range(['#00ffff', '#00ff88', '#ffff00', '#ff6600', '#ff0000']);
             break;
         case 'velocity':
             value = data.velocity;
             colorScale = d3.scaleThreshold()
                 .domain([9, 12, 15, 18])
-                .range(['#6366f1', '#8b5cf6', '#a855f7', '#c026d3', '#d946ef']);
+                .range(['#00d4ff', '#0099ff', '#7700ff', '#ff0099', '#ff00ff']);
             break;
         default:
             value = data.youth;
             colorScale = d3.scaleThreshold()
                 .domain([15, 25, 40, 55])
-                .range(['#3b82f6', '#667eea', '#8b5cf6', '#a855f7', '#c026d3']);
+                .range(['#00d4ff', '#0099ff', '#0055ff', '#7700ff', '#ff00ff']);
     }
 
     return colorScale(value);
