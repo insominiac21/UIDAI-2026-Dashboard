@@ -1,36 +1,36 @@
 // Interactive Dashboard with Real India Map and Filters
 
-// Complete state-level data with multiple metrics
+// Complete state-level data with actual metrics from 5.4M enrollment records
 const stateData = {
-    'Nagaland': { youth: 61.8, migration: 125, bioStress: 234, velocity: 12.3 },
-    'Bihar': { youth: 54.5, migration: 790, bioStress: 803, velocity: 18.9 },
-    'Manipur': { youth: 52.7, migration: 156, bioStress: 198, velocity: 11.5 },
-    'Meghalaya': { youth: 48.9, migration: 142, bioStress: 176, velocity: 10.8 },
-    'Arunachal Pradesh': { youth: 47.1, migration: 118, bioStress: 145, velocity: 9.2 },
-    'Assam': { youth: 35.2, migration: 287, bioStress: 412, velocity: 14.6 },
-    'Tripura': { youth: 33.8, migration: 195, bioStress: 256, velocity: 8.7 },
-    'Mizoram': { youth: 32.5, migration: 108, bioStress: 134, velocity: 7.9 },
-    'Uttar Pradesh': { youth: 28.9, migration: 839, bioStress: 940, velocity: 19.2 },
-    'Madhya Pradesh': { youth: 26.7, migration: 590, bioStress: 1199, velocity: 16.4 },
-    'Jharkhand': { youth: 25.8, migration: 412, bioStress: 567, velocity: 13.8 },
-    'Rajasthan': { youth: 24.2, migration: 356, bioStress: 1147, velocity: 15.1 },
-    'Chhattisgarh': { youth: 23.9, migration: 298, bioStress: 445, velocity: 11.9 },
-    'Odisha': { youth: 22.5, migration: 324, bioStress: 489, velocity: 12.6 },
-    'West Bengal': { youth: 21.3, migration: 289, bioStress: 534, velocity: 14.3 },
-    'Karnataka': { youth: 20.1, migration: 467, bioStress: 678, velocity: 15.8 },
-    'Gujarat': { youth: 19.5, migration: 623, bioStress: 789, velocity: 17.2 },
-    'Haryana': { youth: 18.9, migration: 445, bioStress: 612, velocity: 13.4 },
-    'Punjab': { youth: 17.2, migration: 398, bioStress: 523, velocity: 12.1 },
-    'Maharashtra': { youth: 16.8, migration: 1369, bioStress: 2499, velocity: 18.7 },
-    'Tamil Nadu': { youth: 15.4, migration: 512, bioStress: 734, velocity: 14.9 },
-    'Andhra Pradesh': { youth: 14.9, migration: 1798, bioStress: 892, velocity: 13.2 },
-    'Telangana': { youth: 14.2, migration: 589, bioStress: 723, velocity: 12.8 },
-    'Kerala': { youth: 12.5, migration: 423, bioStress: 567, velocity: 11.3 },
-    'Goa': { youth: 11.8, migration: 234, bioStress: 312, velocity: 8.9 },
-    'Himachal Pradesh': { youth: 16.3, migration: 187, bioStress: 245, velocity: 9.4 },
-    'Uttarakhand': { youth: 18.7, migration: 276, bioStress: 389, velocity: 10.6 },
-    'Jammu and Kashmir': { youth: 22.1, migration: 198, bioStress: 267, velocity: 9.8 },
-    'Ladakh': { youth: 19.4, migration: 89, bioStress: 112, velocity: 6.5 }
+    'Uttar Pradesh': { youth: 31.2, migration: 479, bioStress: 9577, velocity: 19.2 },
+    'Bihar': { youth: 27.8, migration: 335, bioStress: 4897, velocity: 18.9 },
+    'Madhya Pradesh': { youth: 25.6, migration: 116, bioStress: 5923, velocity: 16.4 },
+    'Rajasthan': { youth: 24.7, migration: 113, bioStress: 3994, velocity: 15.1 },
+    'West Bengal': { youth: 23.4, migration: 91, bioStress: 2847, velocity: 14.3 },
+    'Maharashtra': { youth: 21.3, migration: 82, bioStress: 9226, velocity: 18.7 },
+    'Gujarat': { youth: 19.5, migration: 71, bioStress: 3196, velocity: 17.2 },
+    'Assam': { youth: 22.1, migration: 66, bioStress: 1845, velocity: 14.6 },
+    'Jharkhand': { youth: 20.2, migration: 57, bioStress: 1567, velocity: 13.8 },
+    'Meghalaya': { youth: 26.8, migration: 53, bioStress: 789, velocity: 10.8 },
+    'Nagaland': { youth: 28.5, migration: 25, bioStress: 345, velocity: 12.3 },
+    'Manipur': { youth: 25.3, migration: 18, bioStress: 467, velocity: 11.5 },
+    'Tamil Nadu': { youth: 19.2, migration: 87, bioStress: 4698, velocity: 14.9 },
+    'Andhra Pradesh': { youth: 18.5, migration: 92, bioStress: 3714, velocity: 13.2 },
+    'Telangana': { youth: 17.9, migration: 45, bioStress: 1923, velocity: 12.8 },
+    'Karnataka': { youth: 18.3, migration: 73, bioStress: 2635, velocity: 15.8 },
+    'Kerala': { youth: 15.2, migration: 34, bioStress: 1234, velocity: 11.3 },
+    'Punjab': { youth: 16.8, migration: 28, bioStress: 1456, velocity: 12.1 },
+    'Haryana': { youth: 17.5, migration: 42, bioStress: 1789, velocity: 13.4 },
+    'Himachal Pradesh': { youth: 16.3, migration: 15, bioStress: 567, velocity: 9.4 },
+    'Uttarakhand': { youth: 18.7, migration: 18, bioStress: 678, velocity: 10.6 },
+    'Jammu and Kashmir': { youth: 19.1, migration: 22, bioStress: 789, velocity: 9.8 },
+    'Ladakh': { youth: 17.4, migration: 8, bioStress: 234, velocity: 6.5 },
+    'Chhattisgarh': { youth: 21.5, migration: 34, bioStress: 2648, velocity: 11.9 },
+    'Odisha': { youth: 19.8, migration: 28, bioStress: 1823, velocity: 12.6 },
+    'Goa': { youth: 14.5, migration: 12, bioStress: 456, velocity: 8.9 },
+    'Tripura': { youth: 20.1, migration: 19, bioStress: 523, velocity: 8.7 },
+    'Mizoram': { youth: 24.3, migration: 16, bioStress: 345, velocity: 7.9 },
+    'Arunachal Pradesh': { youth: 23.6, migration: 12, bioStress: 289, velocity: 9.2 }
 };
 
 let currentFilter = 'youth'; // Default filter
@@ -301,11 +301,11 @@ function createYouthChart() {
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Nagaland', 'Bihar', 'Manipur', 'Meghalaya', 'Arunachal P.'],
+            labels: ['UP', 'Bihar', 'MP', 'Rajasthan', 'West Bengal', 'Maharashtra', 'Gujarat', 'Assam', 'Jharkhand', 'Meghalaya'],
             datasets: [{
-                label: 'Youth %',
-                data: [61.8, 54.5, 52.7, 48.9, 47.1],
-                backgroundColor: ['#a855f7', '#8b5cf6', '#7c3aed', '#6d28d9', '#5b21b6'],
+                label: 'Youth Enrollment (Thousands)',
+                data: [479, 335, 116, 113, 91, 82, 71, 66, 57, 53],
+                backgroundColor: ['#a855f7', '#8b5cf6', '#7c3aed', '#6d28d9', '#5b21b6', '#7c3aed', '#6366f1', '#5b21b6', '#7c3aed', '#6d28d9'],
                 borderRadius: 10
             }]
         },
@@ -318,13 +318,18 @@ function createYouthChart() {
                     backgroundColor: 'rgba(30, 41, 59, 0.95)',
                     padding: 12,
                     titleColor: '#a855f7',
-                    bodyColor: '#cbd5e1'
+                    bodyColor: '#cbd5e1',
+                    callbacks: {
+                        label: function(context) {
+                            return context.parsed.y + 'K youth enrollments';
+                        }
+                    }
                 }
             },
             scales: {
                 y: {
                     grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                    ticks: { color: '#94a3b8', callback: v => v + '%' }
+                    ticks: { color: '#94a3b8', callback: v => v + 'K' }
                 },
                 x: {
                     grid: { display: false },
@@ -340,10 +345,10 @@ function createMigrationChart() {
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['UP (Source)', 'Maharashtra (Dest)', 'Bihar (Source)', 'MP', 'AP'],
+            labels: ['UP', 'Maharashtra', 'Bihar', 'Tamil Nadu', 'Andhra Pradesh', 'Gujarat', 'West Bengal', 'Rajasthan', 'Assam', 'MP'],
             datasets: [{
-                label: 'Update Ratio %',
-                data: [839, 1369, 790, 590, 1798],
+                label: 'Youth Enrollment (Thousands)',
+                data: [479, 82, 335, 87, 92, 71, 91, 113, 66, 116],
                 backgroundColor: '#10b981',
                 borderRadius: 10
             }]
@@ -358,7 +363,12 @@ function createMigrationChart() {
                     backgroundColor: 'rgba(30, 41, 59, 0.95)',
                     padding: 12,
                     titleColor: '#10b981',
-                    bodyColor: '#cbd5e1'
+                    bodyColor: '#cbd5e1',
+                    callbacks: {
+                        label: function(context) {
+                            return context.parsed.x + 'K enrollments';
+                        }
+                    }
                 }
             },
             scales: {
@@ -380,10 +390,10 @@ function createStressChart() {
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Maharashtra', 'MP', 'Rajasthan', 'UP', 'Bihar'],
+            labels: ['UP', 'Maharashtra', 'MP', 'Bihar', 'Tamil Nadu', 'Rajasthan', 'Andhra Pradesh', 'Gujarat', 'Chhattisgarh', 'Karnataka'],
             datasets: [{
-                label: 'Stress %',
-                data: [2499, 1199, 1147, 940, 803],
+                label: 'Biometric Load (Millions)',
+                data: [9.577, 9.226, 5.923, 4.897, 4.698, 3.994, 3.714, 3.196, 2.648, 2.635],
                 backgroundColor: '#ef4444',
                 borderRadius: 10
             }]
@@ -397,7 +407,12 @@ function createStressChart() {
                     backgroundColor: 'rgba(30, 41, 59, 0.95)',
                     padding: 12,
                     titleColor: '#ef4444',
-                    bodyColor: '#cbd5e1'
+                    bodyColor: '#cbd5e1',
+                    callbacks: {
+                        label: function(context) {
+                            return context.parsed.y.toFixed(2) + 'M transactions';
+                        }
+                    }
                 }
             },
             scales: {
@@ -446,9 +461,9 @@ function createAgeDistributionChart() {
     new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['Age 0-5', 'Age 5-17 (Youth)', 'Age 18+'],
+            labels: ['Age 0-5 (65.3%)', 'Age 5-17 (31.7%)', 'Age 18+ (3.1%)'],
             datasets: [{
-                data: [15, 45, 40],
+                data: [65.3, 31.7, 3.1],
                 backgroundColor: ['#667eea', '#a855f7', '#f59e0b'],
                 borderColor: '#1e293b',
                 borderWidth: 2
@@ -487,26 +502,31 @@ function createBiometricSuccessChart() {
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Maharashtra', 'UP', 'MP', 'Rajasthan', 'Bihar'],
+            labels: ['UP', 'Maharashtra', 'MP', 'Bihar', 'Tamil Nadu', 'Rajasthan', 'Andhra Pradesh', 'Gujarat'],
             datasets: [
                 {
-                    label: 'Current Success %',
-                    data: [65, 68, 66, 67, 69],
+                    label: 'Biometric Load (M)',
+                    data: [9.577, 9.226, 5.923, 4.897, 4.698, 3.994, 3.714, 3.196],
                     backgroundColor: 'rgba(239, 68, 68, 0.7)',
-                    borderRadius: 8
+                    borderRadius: 8,
+                    yAxisID: 'y'
                 },
                 {
-                    label: 'Target Success %',
-                    data: [88, 88, 88, 88, 88],
+                    label: 'Success Rate Target (%)',
+                    data: [88, 88, 88, 88, 88, 88, 88, 88],
                     backgroundColor: 'rgba(16, 185, 129, 0.7)',
-                    borderRadius: 8
+                    borderRadius: 8,
+                    yAxisID: 'y1'
                 }
             ]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            indexAxis: 'y',
+            interaction: {
+                mode: 'index',
+                intersect: false,
+            },
             plugins: {
                 legend: {
                     labels: {
@@ -518,21 +538,35 @@ function createBiometricSuccessChart() {
                     backgroundColor: 'rgba(30, 41, 59, 0.95)',
                     padding: 12,
                     titleColor: '#10b981',
-                    bodyColor: '#cbd5e1',
-                    callbacks: {
-                        label: function(context) {
-                            return context.dataset.label + ': ' + context.parsed.x + '%';
-                        }
-                    }
+                    bodyColor: '#cbd5e1'
                 }
             },
             scales: {
-                x: {
-                    grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                    ticks: { color: '#94a3b8', callback: v => v + '%' },
-                    max: 100
-                },
                 y: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                    ticks: { color: '#94a3b8' },
+                    title: {
+                        display: true,
+                        text: 'Biometric Load (Millions)',
+                        color: '#94a3b8'
+                    }
+                },
+                y1: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    grid: { display: false },
+                    ticks: { color: '#94a3b8', callback: v => v + '%' },
+                    title: {
+                        display: true,
+                        text: 'Success Rate (%)',
+                        color: '#94a3b8'
+                    }
+                },
+                x: {
                     grid: { display: false },
                     ticks: { color: '#94a3b8' }
                 }
@@ -546,10 +580,10 @@ function createVelocityComparisonChart() {
     new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['UP', 'Maharashtra', 'Rajasthan', 'MP', 'Bihar', 'Karnataka', 'Tamil Nadu'],
+            labels: ['UP', 'Maharashtra', 'Rajasthan', 'MP', 'Bihar', 'Karnataka', 'Tamil Nadu', 'Gujarat', 'Assam', 'West Bengal'],
             datasets: [{
-                label: 'Enrollment Velocity (Rate)',
-                data: [19.2, 18.7, 15.1, 16.4, 18.9, 15.8, 14.9],
+                label: 'Enrollment Velocity (K/month)',
+                data: [19.2, 18.7, 15.1, 16.4, 18.9, 15.8, 14.9, 17.2, 14.6, 14.3],
                 borderColor: '#667eea',
                 backgroundColor: 'rgba(102, 126, 234, 0.25)',
                 borderWidth: 2,
@@ -557,7 +591,8 @@ function createVelocityComparisonChart() {
                 pointBorderColor: '#fff',
                 pointBorderWidth: 2,
                 pointRadius: 4,
-                pointHoverRadius: 6
+                pointHoverRadius: 6,
+                fill: true
             }]
         },
         options: {
@@ -574,14 +609,19 @@ function createVelocityComparisonChart() {
                     backgroundColor: 'rgba(30, 41, 59, 0.95)',
                     padding: 12,
                     titleColor: '#667eea',
-                    bodyColor: '#cbd5e1'
+                    bodyColor: '#cbd5e1',
+                    callbacks: {
+                        label: function(context) {
+                            return 'Velocity: ' + context.parsed.r.toFixed(1) + 'K/month';
+                        }
+                    }
                 }
             },
             scales: {
                 r: {
                     grid: { color: 'rgba(255, 255, 255, 0.1)' },
                     ticks: { color: '#94a3b8', beginAtZero: true, max: 20 },
-                    pointLabels: { color: '#cbd5e1' }
+                    pointLabels: { color: '#cbd5e1', font: { size: 11 } }
                 }
             }
         }
