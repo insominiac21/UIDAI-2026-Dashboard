@@ -177,22 +177,24 @@ function updateMapColors() {
     // Update stats to reflect the new filter
     updateMapStats('India');
 }
-
 function updateMapStats(stateName) {
     const data = stateData[stateName] || { youth: 24.4, migration: 450, bioStress: 600, velocity: 12.5 };
 
-    let value, priority = 'Standard', displayValue = '';
+    let priority = 'Standard';
+    let metricValue, metricLabel, value;
     switch (currentFilter) {
         case 'youth':
             value = data.youth;
-            displayValue = value.toFixed(1) + '%';
+            metricValue = value.toFixed(1) + '%';
+            metricLabel = 'Youth %';
             if (value > 50) priority = 'Critical';
             else if (value > 35) priority = 'High';
             else if (value > 25) priority = 'Medium';
             break;
         case 'migration':
             value = data.migration;
-            displayValue = value;
+            metricValue = value.toLocaleString();
+            metricLabel = 'Migration Index';
             if (value > 1200) priority = 'Critical';
             else if (value > 700) priority = 'High';
             else if (value > 400) priority = 'Medium';
@@ -200,7 +202,8 @@ function updateMapStats(stateName) {
             break;
         case 'biometric':
             value = data.bioStress;
-            displayValue = value;
+            metricValue = value.toLocaleString();
+            metricLabel = 'Biometric Stress';
             if (value > 2000) priority = 'Critical';
             else if (value > 1000) priority = 'High';
             else if (value > 600) priority = 'Medium';
@@ -208,7 +211,8 @@ function updateMapStats(stateName) {
             break;
         case 'velocity':
             value = data.velocity;
-            displayValue = value.toFixed(1);
+            metricValue = value.toFixed(1);
+            metricLabel = 'Enrollment Velocity';
             if (value > 18) priority = 'Critical';
             else if (value > 15) priority = 'High';
             else if (value > 12) priority = 'Medium';
@@ -216,14 +220,16 @@ function updateMapStats(stateName) {
             break;
         default:
             value = data.youth;
-            displayValue = value.toFixed(1) + '%';
+            metricValue = value.toFixed(1) + '%';
+            metricLabel = 'Youth %';
             if (value > 50) priority = 'Critical';
             else if (value > 35) priority = 'High';
             else if (value > 25) priority = 'Medium';
     }
 
     document.getElementById('selected-state').textContent = stateName;
-    document.getElementById('youth-percent').textContent = displayValue;
+    if (document.getElementById('metric-value')) document.getElementById('metric-value').textContent = metricValue;
+    if (document.getElementById('metric-label')) document.getElementById('metric-label').textContent = metricLabel;
     document.getElementById('priority-level').textContent = priority;
 
     // Animate stat cards
@@ -232,6 +238,7 @@ function updateMapStats(stateName) {
         setTimeout(() => card.style.animation = 'fadeInUp 0.5s ease-out', 10);
     });
 }
+
 
 function showStateDetails(stateName) {
     const data = stateData[stateName];
@@ -276,4 +283,5 @@ document.querySelectorAll('.floating-nav a').forEach(link => {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 });
+
 
