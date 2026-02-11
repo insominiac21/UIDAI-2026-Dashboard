@@ -181,41 +181,49 @@ function updateMapColors() {
 function updateMapStats(stateName) {
     const data = stateData[stateName] || { youth: 24.4, migration: 450, bioStress: 600, velocity: 12.5 };
 
-    let youth = data.youth;
-    let priority = 'Standard';
-    if (youth > 50) priority = 'Critical';
-    else if (youth > 35) priority = 'High';
-    else if (youth > 25) priority = 'Medium';
-
-    document.getElementById('selected-state').textContent = stateName;
-    
-    // Update metric value and label based on current filter
-    let metricValue, metricLabel;
-    
-    switch(currentFilter) {
+    let value, priority = 'Standard', displayValue = '';
+    switch (currentFilter) {
         case 'youth':
-            metricValue = youth.toFixed(1) + '%';
-            metricLabel = 'Youth %';
+            value = data.youth;
+            displayValue = value.toFixed(1) + '%';
+            if (value > 50) priority = 'Critical';
+            else if (value > 35) priority = 'High';
+            else if (value > 25) priority = 'Medium';
             break;
         case 'migration':
-            metricValue = data.migration.toLocaleString();
-            metricLabel = 'Migration Index';
+            value = data.migration;
+            displayValue = value;
+            if (value > 1200) priority = 'Critical';
+            else if (value > 700) priority = 'High';
+            else if (value > 400) priority = 'Medium';
+            else if (value > 200) priority = 'Standard';
             break;
         case 'biometric':
-            metricValue = data.bioStress.toLocaleString();
-            metricLabel = 'Biometric Stress';
+            value = data.bioStress;
+            displayValue = value;
+            if (value > 2000) priority = 'Critical';
+            else if (value > 1000) priority = 'High';
+            else if (value > 600) priority = 'Medium';
+            else if (value > 300) priority = 'Standard';
             break;
         case 'velocity':
-            metricValue = data.velocity.toFixed(1);
-            metricLabel = 'Enrollment Velocity';
+            value = data.velocity;
+            displayValue = value.toFixed(1);
+            if (value > 18) priority = 'Critical';
+            else if (value > 15) priority = 'High';
+            else if (value > 12) priority = 'Medium';
+            else if (value > 9) priority = 'Standard';
             break;
         default:
-            metricValue = youth.toFixed(1) + '%';
-            metricLabel = 'Youth %';
+            value = data.youth;
+            displayValue = value.toFixed(1) + '%';
+            if (value > 50) priority = 'Critical';
+            else if (value > 35) priority = 'High';
+            else if (value > 25) priority = 'Medium';
     }
-    
-    document.getElementById('metric-value').textContent = metricValue;
-    document.getElementById('metric-label').textContent = metricLabel;
+
+    document.getElementById('selected-state').textContent = stateName;
+    document.getElementById('youth-percent').textContent = displayValue;
     document.getElementById('priority-level').textContent = priority;
 
     // Animate stat cards
@@ -268,3 +276,4 @@ document.querySelectorAll('.floating-nav a').forEach(link => {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 });
+
