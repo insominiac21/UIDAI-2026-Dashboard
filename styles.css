@@ -1,4 +1,4 @@
-/* Vibrant Teal & Light Dashboard Theme */
+/* Beautiful Interactive Dashboard CSS - Vibrant Teal Theme */
 
 * {
     margin: 0;
@@ -7,23 +7,14 @@
 }
 
 :root {
-    /* Teal & Cyan Palette */
     --primary: #0d9488;
-    --primary-light: #14b8a6;
     --secondary: #06b6d4;
-    --accent: #f59e0b;
-    
-    /* Light Theme Surface Colors */
-    --dark: #134e4a; 
+    --dark: #134e4a;
     --card: #ffffff;
     --text: #134e4a;
-    --text-muted: #115e59;
+    --text-muted: #475569;
     --bg-main: #f0fdfa;
     --border-color: #99f6e4;
-    
-    /* Vibrant Gradients */
-    --gradient-primary: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%);
-    --gradient-bg: linear-gradient(180deg, #f0fdfa 0%, #ccfbf1 100%);
 }
 
 html {
@@ -37,7 +28,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Animated Background - Updated for Vibrance */
+/* Animated Background */
 .animated-bg {
     position: fixed;
     top: 0;
@@ -45,21 +36,21 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: var(--gradient-bg);
+    background: linear-gradient(180deg, #f0fdfa 0%, #ccfbf1 100%);
 }
 
 .gradient-orb {
     position: absolute;
     border-radius: 50%;
     filter: blur(100px);
-    opacity: 0.5;
+    opacity: 0.4;
     animation: float 20s infinite ease-in-out;
 }
 
 .orb-1 {
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, var(--primary-light), transparent);
+    background: radial-gradient(circle, #14b8a6, transparent);
     top: -200px;
     left: -200px;
     animation-delay: 0s;
@@ -77,11 +68,11 @@ body {
 .orb-3 {
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, var(--accent), transparent);
+    background: radial-gradient(circle, #f59e0b, transparent);
     top: 50%;
     left: 50%;
     animation-delay: 10s;
-    opacity: 0.2;
+    opacity: 0.15;
 }
 
 @keyframes float {
@@ -103,7 +94,7 @@ body {
 .hero-content h1 {
     font-size: 5rem;
     font-weight: 900;
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
@@ -135,13 +126,13 @@ body {
     50% { transform: translateX(-50%) translateY(-10px); }
 }
 
-/* Floating Navigation - Glassmorphism Light */
+/* Floating Navigation */
 .floating-nav {
     position: fixed;
     top: 50%;
     right: 30px;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     padding: 1rem;
     border-radius: 30px;
@@ -161,7 +152,7 @@ body {
 }
 
 .floating-nav a:hover {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
     transform: scale(1.2);
 }
@@ -182,7 +173,7 @@ body {
     font-size: 3rem;
     text-align: center;
     margin-bottom: 1rem;
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -200,8 +191,8 @@ body {
     border-radius: 30px;
     padding: 3rem;
     box-shadow: 0 20px 60px rgba(13, 148, 136, 0.1);
-    position: relative;
     border: 2px solid var(--border-color);
+    position: relative;
 }
 
 #india-map {
@@ -231,7 +222,7 @@ body {
 
 .stat-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(13, 148, 136, 0.15);
+    box-shadow: 0 8px 20px rgba(13, 148, 136, 0.1);
     border-color: var(--primary);
 }
 
@@ -240,13 +231,6 @@ body {
     font-weight: 700;
     color: var(--primary);
     line-height: 1.2;
-}
-
-.stat-label {
-    color: var(--text-muted);
-    margin-top: 0.3rem;
-    font-size: 0.85rem;
-    font-weight: 500;
 }
 
 /* Filter Controls */
@@ -272,12 +256,11 @@ body {
 
 .filter-btn:hover {
     transform: translateY(-3px);
-    border-color: var(--primary);
-    box-shadow: 0 8px 25px rgba(13, 148, 136, 0.15);
+    box-shadow: 0 8px 25px rgba(13, 148, 136, 0.1);
 }
 
 .filter-btn.active {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
     border-color: transparent;
     animation: glow 1.5s infinite;
@@ -285,7 +268,7 @@ body {
 
 @keyframes glow {
     0%, 100% { box-shadow: 0 0 15px rgba(13, 148, 136, 0.4); }
-    50% { box-shadow: 0 0 25px rgba(13, 148, 136, 0.6); }
+    50% { box-shadow: 0 0 25px rgba(13, 148, 136, 0.7); }
 }
 
 /* Policy Boxes */
@@ -298,38 +281,33 @@ body {
     transition: all 0.3s ease;
 }
 
-.policy-box:hover {
-    background: #ccfbf1;
-    transform: translateX(5px);
-}
-
-.policy-title {
-    font-weight: 700;
-    color: var(--primary-dark);
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-}
-
 /* Insights Grid */
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .insights-grid { grid-template-columns: 1fr; }
+}
+
 .insight-card {
     background: var(--card);
     padding: 3rem;
     border-radius: 30px;
-    box-shadow: 0 15px 40px rgba(13, 148, 136, 0.08);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+    border: 2px solid var(--border-color);
     transition: all 0.4s ease;
     cursor: pointer;
-    border: 2px solid var(--border-color);
 }
 
 .insight-card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 60px rgba(13, 148, 136, 0.15);
+    box-shadow: 0 25px 60px rgba(13, 148, 136, 0.2);
     border-color: var(--primary);
-}
-
-.insight-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
 }
 
 .insight-stat {
@@ -338,27 +316,55 @@ body {
     background: #ccfbf1;
     border-radius: 15px;
     font-weight: 600;
-    color: var(--primary-dark);
+    color: var(--primary);
 }
 
 /* Policy Timeline */
+.policy-timeline {
+    position: relative;
+    padding-left: 60px;
+}
+
 .policy-timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
     background: var(--border-color);
+    border-radius: 2px;
 }
 
 .timeline-dot {
-    background: var(--gradient-primary);
+    position: absolute;
+    left: -50px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 50%;
     box-shadow: 0 0 20px rgba(13, 148, 136, 0.3);
 }
 
 .timeline-content {
     background: var(--card);
-    border: 2px solid var(--border-color);
+    padding: 2.5rem;
+    border-radius: 25px;
     border-left: 4px solid var(--primary);
-    box-shadow: 0 10px 30px rgba(13, 148, 136, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-top: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 /* New Policy Framework Styles */
+.policy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
 .policy-category {
     background: var(--card);
     border-radius: 20px;
@@ -369,64 +375,96 @@ body {
 }
 
 .policy-category:hover {
-    transform: translateY(-5px);
     border-color: var(--primary);
-}
-
-.policy-category h3 {
-    color: var(--primary-dark);
+    transform: translateY(-5px);
 }
 
 .data-support {
     padding: 0.8rem;
     background: #ccfbf1;
     border-radius: 10px;
-    color: var(--primary-dark);
+    color: var(--primary);
     font-weight: 600;
 }
 
 /* Implementation Timeline */
 .implementation-timeline {
     background: var(--card);
+    padding: 3rem;
+    border-radius: 20px;
+    margin-bottom: 4rem;
     border: 2px solid var(--border-color);
+}
+
+.timeline-phases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
 }
 
 .phase {
     background: #f0fdfa;
+    padding: 2rem;
+    border-radius: 15px;
     border: 1px solid var(--border-color);
 }
 
 .phase-label {
-    color: var(--primary-dark);
+    color: var(--primary);
 }
 
 /* Success Metrics */
 .success-metrics {
     background: #ccfbf1;
+    padding: 3rem;
+    border-radius: 20px;
     border: 2px solid var(--primary);
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
 }
 
 .metric-card {
     background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
     border: 1px solid var(--border-color);
 }
 
 .metric-number {
-    background: var(--gradient-primary);
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 /* Charts Grid */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
 .chart-card {
     background: var(--card);
+    padding: 2.5rem;
+    border-radius: 30px;
     border: 2px solid var(--border-color);
-    box-shadow: 0 15px 40px rgba(13, 148, 136, 0.08);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
 }
 
 .chart-insight {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
     background: #f0fdfa;
     border-left: 4px solid var(--primary);
+    border-radius: 10px;
     color: var(--text);
 }
 
@@ -434,19 +472,37 @@ body {
 .footer {
     background: white;
     border-top: 2px solid var(--border-color);
+    padding: 4rem 2rem 2rem;
+    margin-top: 100px;
 }
 
 .cta-button {
-    background: var(--gradient-primary);
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
-    box-shadow: 0 10px 30px rgba(13, 148, 136, 0.3);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(13, 148, 136, 0.2);
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(13, 148, 136, 0.5);
+    box-shadow: 0 15px 40px rgba(13, 148, 136, 0.4);
 }
 
-.footer-credits {
-    border-top: 1px solid var(--border-color);
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .hero-content h1 { font-size: 3rem; }
+    .charts-grid { grid-template-columns: 1fr; }
+    .floating-nav { display: none; }
+    #india-map { height: 400px; }
 }
